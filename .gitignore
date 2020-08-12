@@ -1,0 +1,4 @@
+/client
+node_modules
+db_config.js
+.vs/
