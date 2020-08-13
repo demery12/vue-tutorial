@@ -3,17 +3,11 @@ const mongodb = require('mongodb');
 
 const path = require('path');
 const appDir = path.dirname(require.main.filename);
-console.log(appDir);
-console.log(process.env.NODE_PATH);
-console.log("Hello");
-
-
-const ENV = "local";
 
 let config;
-if (ENV === "local") {
+if (process.env.NODE_ENV !== 'production') {
 	config = require('config/db_config.js');
-} else if (ENV === "prod") {
+} else {
 	config = {
 		user: process.env.MONGO_USER,
 		password: process.env.MONGO_PASSWORD,
